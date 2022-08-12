@@ -1,0 +1,1 @@
+Documentação do projeto para disciplina de Padrões de projetos.
