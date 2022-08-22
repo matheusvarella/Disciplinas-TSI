@@ -2,55 +2,53 @@ package refactoring.basic;
 
 import java.util.Scanner;
 
-public class VerificaPoliedro 
-{
-	//Pelo Teorema de Euler[2] sobre os poliedros convexos com V vértices, A arestas e F faces,
-	//vale a seguinte relação: V - A + F = 2. O programa “VerifPoliedro” verifica qual poliedro 
-	//em questão e quantas faces ele possui.
-    //Programa "VerifPoliedro"
-	//Verifica qual poliedro está sendo considerado e mostra sua quantidade de faces.
-	//--------------------------------------------------------------------------------
-	public static void main(String args[])
-	{
-		float V, A, F;
-		boolean	Resp; //declara variável lógica (booleana)
-		Scanner scan = new Scanner(System.in);
-		do{
-		System.out.print("Digite o número de vértices do poliedro [4-6-8-12-20]: ");
-			V=scan.nextFloat();
-		}while(V!=4&&V!=6&&V!=8&&V!=12&&V!=20);
-			System.out.println("");
-			do {
-			System.out.print("Digite o número de arestas do poliedro [6-12-30]: ");
-			A=scan.nextFloat();
-			}while((A!=6) && (A!=12) && !(A==30));
-			System.out.println("");
-			//{Analisa os dados de entrada e determina o poliedro}
-			Resp=false;
-			F=2+A-V;
-			if((V==4) && (A==6)){
-			System.out.println("Tetraedro:"+ F+" faces");
+public class VerificaPoliedro {
+	public static void identifyPolihedron(float vertice, float aresta) {
+		float face;
+
+		face = 2 + aresta - vertice;
+
+		if (vertice == 4 && aresta == 6) {
+			System.out.println("Tetraedro: " + face + " faces");
 			System.out.println("Forma face: Triângulo");
-			Resp=true;}else {
-			if((V==8) && (A==12)){
-			System.out.println("Hexaedro:"+F+" faces");
+		} else if (vertice == 8 && aresta == 12) {
+			System.out.println("Hexaedro: " + face + " faces");
 			System.out.println("Forma face: Quadrado");
-			Resp=true;}
-			if((V==6) && (A==12)){
-			System.out.println("Octaedro:"+F+" faces");
+		} else if (vertice == 6 && aresta == 12) {
+			System.out.println("Octaedro: " + face + " faces");
 			System.out.println("Forma face: Triângulo");
-			Resp=true;}
-			if((V==20) && (A==30)) {
-			System.out.println("Dodecaedro:"+F+" faces");
+		} else if (vertice == 20 && aresta == 30) {
+			System.out.println("Dodecaedro: " + face + " faces");
 			System.out.println("Forma face: Pentágono");
-			Resp=true;}
-			if((V==12) && (A==30)){
-			System.out.println("Icosaedro:"+F+" faces");
+		} else if (vertice == 12 && aresta == 30) {
+			System.out.println("Icosaedro: " + face + " faces");
 			System.out.println("Forma face: Triângulo");
-			Resp=true;}
-			}
-			if(Resp==false){
+		} else {
 			System.out.println("Os dados não indicam nenhum poliedro regular.");
-			}
+		}
+	}
+
+	public static void main(String[] args) {
+		float vertice;
+		float aresta;
+		Scanner scanner = new Scanner(System.in);
+
+		do {
+			System.out.print("Digite o número de vértices do poliedro [4-6-8-12-20]: ");
+			vertice = scanner.nextFloat();
+		} while (vertice != 4 && vertice != 6 && vertice != 8 && vertice != 12 && vertice != 20);
+
+		System.out.println("");
+
+		do {
+			System.out.print("Digite o número de arestas do poliedro [6-12-30]: ");
+			aresta = scanner.nextFloat();
+		} while (aresta != 6 && aresta != 12 && aresta != 30);
+
+		System.out.println("");
+
+		identifyPolihedron(vertice, aresta);
+
+		scanner.close();
 	}
 }

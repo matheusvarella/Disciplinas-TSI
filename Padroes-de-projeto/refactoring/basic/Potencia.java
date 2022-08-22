@@ -2,34 +2,44 @@ package refactoring.basic;
 
 import java.util.Scanner;
 
-public class Potencia 
-{
-	//Programa "CalculaPotencia"
-	//Calcula a potência p de um número N digitado.
-	//---------------------------------------------------------
-	
-	public static void main(String[] args)
-	{
-	int N, p, Pote, j;
-	Scanner scan = new Scanner(System.in);
-	System.out.println("Digite o número a ser potenciado: ");
-	N=scan.nextInt();
-	System.out.println("Digite a potência desejada: ");
-	p=scan.nextInt();
-	while (p<0||N<=1){
-	System.out.println("Entrada inválida");
-	System.out.println("");
-	System.out.println("Digite o número a ser potenciado: ");
-	N=scan.nextInt();
-	System.out.println("Digite a potência desejada: ");
-	p=scan.nextInt();}
-	Pote = 1;
-	if(p>0) { //se pot maior que zero
-	for(j=0; j<p; j++)//calcula potência com loop
-	Pote=Pote*N;
+public class Potencia {
+	private static int calcularPotencia(int base, int exponent) {
+		var result = 1;
+
+		if (exponent > 0) {
+			for (int i = 0; i < exponent; i++) {
+				result = result * base;
+			}
+		}
+
+		return result;
 	}
-	System.out.println("");
-	System.out.println(N + " elevado a"+p+":"+Pote);
-	scan.close();
+
+	public static void main(String[] args) {
+		int number;
+		int exponent;
+		int result = 0;
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Digite o nÃºmero a ser potenciado: ");
+		number = scan.nextInt();
+
+		System.out.println("Digite a potÃªncia desejada: ");
+		exponent = scan.nextInt();
+
+		while (exponent < 0 || number <= 1) {
+			System.out.println("Entrada invÃ¡lida");
+			System.out.println("");
+			System.out.println("Digite o nÃºmero a ser potenciado: ");
+			number = scan.nextInt();
+			System.out.println("Digite a potÃªncia desejada: ");
+			exponent = scan.nextInt();
+		}
+
+		result = calcularPotencia(number, exponent);
+
+		System.out.println("");
+		System.out.println(number + " elevado a " + exponent + ": " + result);
+		scan.close();
 	}
 }
