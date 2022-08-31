@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/UTFPR/Disciplinas-TSI/Dispositivos-Moveis/PetShop/app/src/main/res/layout-land/activity_main.xml" value="0.1" />
         <entry key="..\:/UTFPR/Disciplinas-TSI/Dispositivos-Moveis/PetShop/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/UTFPR/Disciplinas-TSI/Dispositivos-Moveis/PetShop/app/src/main/res/layout/item_pet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>

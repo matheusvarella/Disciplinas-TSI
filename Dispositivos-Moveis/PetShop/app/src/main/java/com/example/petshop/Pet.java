@@ -7,6 +7,7 @@ public class Pet implements Serializable {
     private String raca, nome;
     private int idade;
     private boolean vacinado;
+    private Proprietario proprietario;
 
     public char getTipo() {
         return tipo;
